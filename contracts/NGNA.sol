@@ -5,10 +5,9 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract NGNAToken is ERC20, Ownable {
-    address public custodian;
-
-    constructor() ERC20("NGNA Token", "NGNA") {
-        custodian = msg.sender; // Initially set to contract deployer
+    address custodian;
+    constructor() ERC20("NGNA Token", "NGNA") Ownable(msg.sender) {
+        custodian = msg.sender;
     }
 
     function mint(address to, uint256 amount) external onlyOwner {

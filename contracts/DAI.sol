@@ -4,10 +4,10 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NGNAToken is ERC20, Ownable {
+contract DAIToken is ERC20, Ownable {
     address public custodian;
 
-    constructor() ERC20("DAI Token", "DAI") {
+    constructor() ERC20("DAI Token", "DAI") Ownable(msg.sender){
         custodian = msg.sender; // Initially set to contract deployer
     }
 
